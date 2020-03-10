@@ -47,10 +47,15 @@ namespace DatabaseTest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Address,Picture,Gender")] Client client)
+        public ActionResult Create([Bind(Include = "ID,Name,Address,Gender")] Client client, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
+                System.IO.Stream imgStream = image.InputStream;
+                int size = (int)imgStream.Length;
+                byte[] imgBytes = new byte[size];
+                imgStream.Read(imgBytes, 0, size);
+                client.Picture = imgBytes;
                 db.Clients.Add(client);
                 db.SaveChanges();
                 return RedirectToAction("Index");
