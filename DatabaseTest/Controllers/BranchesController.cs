@@ -39,9 +39,17 @@ namespace DatabaseTest.Controllers
         // GET: Branches/Create
         public ActionResult Create()
         {
+
+            List<SelectListItem> items = new List<SelectListItem>();
+            for (int i = 0; i < db.Branches.ToList().Count; i++)
+            {
+                items.Add(new SelectListItem { Text = db.Branches.Find(i).Name });
+            }
+
+            ViewData["ddlAssessmentAnswer"] = items;
             return View();
         }
-
+       
         // POST: Branches/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.

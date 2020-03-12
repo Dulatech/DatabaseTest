@@ -9,7 +9,7 @@ namespace DatabaseTest
 {
     public class AppContext : DbContext
     {
-        public AppContext() : base("ProjectDatabaseV2")
+        public AppContext() : base("ProjectDatabaseV8")
         {
             Configuration.LazyLoadingEnabled = false;
         }
