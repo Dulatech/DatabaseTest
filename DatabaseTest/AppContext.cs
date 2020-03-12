@@ -16,6 +16,8 @@ namespace DatabaseTest
         public DbSet<Employee> Employees { get; set; }
 
         public System.Data.Entity.DbSet<DatabaseTest.Models.Client> Clients { get; set; }
+
+        public System.Data.Entity.DbSet<DatabaseTest.Models.Branch> Branches { get; set; }
     }
     public class AppDBInitializer : CreateDatabaseIfNotExists<AppContext>
     {
