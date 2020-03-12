@@ -12,11 +12,22 @@ namespace DatabaseTest.Models
         public string Name { get; set; }
         public string Address { get; set; }
 
+        public string Email { get; set; }
+
+        public string Password { get; set; }
+
         public int ManagerID { get; set; }
 
         public int BranchID { get; set; }
 
         public string Role { get; set; }
+
+        public enum empRole
+        {
+            Employee,
+            Manager,
+            Admin
+        }
 
         public DateTime StartDate { get; set; }
 
